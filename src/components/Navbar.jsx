@@ -39,8 +39,12 @@ export default function Navbar({ onOpenEnquiry }) {
             href="#hero"
             className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 rounded-lg p-1"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center shadow-lg shadow-red-900/40 group-hover:scale-105 transition-transform duration-200">
-              <Dumbbell className="w-5 h-5 text-white" />
+            <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl overflow-hidden border border-red-500/40 bg-[#0c0c10] shadow-lg shadow-red-950/60 group-hover:scale-105 transition-transform duration-200 shrink-0">
+              <img
+                src="/mr-gym-logo.jpg"
+                alt="MR GYM UNISEX Official Logo"
+                className="w-full h-full object-cover scale-110"
+              />
             </div>
             <div>
               <div className="flex items-center gap-1.5">

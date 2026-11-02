@@ -44,8 +44,12 @@ export default function QuickEnquiryModal({ isOpen, onClose }) {
 
         {/* Header */}
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center text-white shadow-lg shadow-red-950">
-            <Dumbbell className="w-6 h-6" />
+          <div className="relative w-12 h-12 rounded-2xl overflow-hidden border border-red-500/40 bg-[#0c0c10] shadow-lg shadow-red-950/60 shrink-0">
+            <img
+              src="/mr-gym-logo.jpg"
+              alt="MR GYM UNISEX Official Logo"
+              className="w-full h-full object-cover scale-110"
+            />
           </div>
           <div>
             <div className="flex items-center gap-2">

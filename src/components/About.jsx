@@ -33,8 +33,12 @@ export default function About() {
                       AAA Complex, Above Reliance Smart Point
                     </p>
                   </div>
-                  <div className="w-12 h-12 rounded-xl bg-red-600/20 border border-red-500/30 flex items-center justify-center shrink-0">
-                    <Dumbbell className="w-6 h-6 text-red-500" />
+                  <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-red-500/40 bg-[#0c0c10] shadow-lg shadow-red-950/60 shrink-0">
+                    <img
+                      src="/mr-gym-logo.jpg"
+                      alt="MR GYM UNISEX Official Logo"
+                      className="w-full h-full object-cover scale-110"
+                    />
                   </div>
                 </div>
               </div>
