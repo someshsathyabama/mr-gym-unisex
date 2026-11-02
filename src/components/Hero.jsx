@@ -1,6 +1,7 @@
 import React from 'react';
-import { Star, MessageSquare, Navigation, Phone, MapPin, CheckCircle, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Star, MessageSquare, Navigation, Phone, MapPin, CheckCircle, ShieldCheck, ArrowRight, Move3d, Sparkles } from 'lucide-react';
 import { GYM_DATA } from '../constants/gymData';
+import ThreeGymScene from './ThreeGymScene';
 
 export default function Hero({ onOpenEnquiry }) {
   return (
@@ -8,22 +9,12 @@ export default function Hero({ onOpenEnquiry }) {
       id="hero"
       className="relative min-h-screen flex items-center justify-center pt-24 pb-16 lg:pt-28 lg:pb-24 overflow-hidden bg-[#08080a]"
     >
-      {/* Background Hero Image with Dark Gradient Overlays */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=85"
-          alt="MR GYM UNISEX Fitness Center Interior in Avilali Tirupati"
-          className="w-full h-full object-cover object-center opacity-30 scale-105 transform motion-safe:transition-transform motion-safe:duration-1000"
-          loading="eager"
-        />
-        {/* Dark radial and linear gradients for luxury aesthetic and maximum text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#08080a] via-[#08080a]/80 to-[#08080a]/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#08080a] via-[#08080a]/75 to-transparent" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-red-600/15 blur-[120px] rounded-full pointer-events-none" />
-      </div>
+      {/* 3D Interactive WebGL Fitness Scene */}
+      <ThreeGymScene />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="max-w-3xl">
+      {/* Hero Foreground Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pointer-events-none">
+        <div className="max-w-3xl pointer-events-auto">
           {/* Badges Bar: Unisex Fitness Center & Avilali, Tirupati */}
           <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-6">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600/20 border border-red-500/40 text-red-400 text-xs font-bold tracking-wide uppercase">
@@ -31,18 +22,24 @@ export default function Hero({ onOpenEnquiry }) {
               Unisex Fitness Center
             </div>
 
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-medium">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-medium backdrop-blur-sm">
               <MapPin className="w-3.5 h-3.5 text-red-500" />
               <span>Avilali, Tirupati</span>
             </div>
 
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-medium">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-medium backdrop-blur-sm">
               <span>Above Reliance Smart Point</span>
+            </div>
+
+            {/* 3D Tag */}
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gradient-to-r from-red-600/30 to-amber-500/20 border border-red-500/30 text-white text-[11px] font-semibold backdrop-blur-sm">
+              <Move3d className="w-3 h-3 text-red-400" />
+              <span>3D Experience</span>
             </div>
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white uppercase font-display leading-[1.08] mb-6">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white uppercase font-display leading-[1.08] mb-6 drop-shadow-lg">
             YOUR FITNESS.{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-400 to-white">
               YOUR STRENGTH.
@@ -51,8 +48,8 @@ export default function Hero({ onOpenEnquiry }) {
           </h1>
 
           {/* Supporting Text */}
-          <p className="text-lg sm:text-xl text-gray-300 font-normal leading-relaxed mb-8 max-w-2xl">
-            Train with purpose at <span className="font-semibold text-white">MR GYM UNISEX</span>, your local fitness destination in Avilali, Tirupati.
+          <p className="text-lg sm:text-xl text-gray-300 font-normal leading-relaxed mb-8 max-w-2xl drop-shadow">
+            Train with purpose at <span className="font-semibold text-white">MR GYM UNISEX</span>, your premier fitness destination in Avilali, Tirupati.
           </p>
 
           {/* Call-to-Action Buttons */}
@@ -74,7 +71,7 @@ export default function Hero({ onOpenEnquiry }) {
               href={GYM_DATA.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-[#18181f] hover:bg-[#22222b] text-white font-semibold text-base border border-white/15 hover:border-white/30 transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-[#18181f]/90 hover:bg-[#22222b] text-white font-semibold text-base border border-white/15 hover:border-white/30 backdrop-blur-md transition-all duration-200"
             >
               <Navigation className="w-5 h-5 text-red-500" />
               <span>Get Directions</span>
@@ -83,7 +80,7 @@ export default function Hero({ onOpenEnquiry }) {
             {/* Quick Call Button */}
             <a
               href={GYM_DATA.phoneUrl}
-              className="inline-flex items-center justify-center gap-2 px-4 py-4 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white font-medium text-sm border border-white/10 transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 px-4 py-4 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white font-medium text-sm border border-white/10 backdrop-blur-md transition-all duration-200"
               title="Call gym directly"
             >
               <Phone className="w-4 h-4 text-gray-400" />
@@ -95,7 +92,7 @@ export default function Hero({ onOpenEnquiry }) {
           {/* Social Proof & Trust Badges Card */}
           <div className="pt-6 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-4">
             {/* Google Rating */}
-            <div className="bg-[#121216]/90 border border-white/10 rounded-xl p-3.5 backdrop-blur-sm">
+            <div className="bg-[#121216]/85 border border-white/10 rounded-xl p-3.5 backdrop-blur-md shadow-lg shadow-black/40">
               <div className="flex items-center gap-1.5 mb-1">
                 <span className="text-xl sm:text-2xl font-black text-white font-display">
                   {GYM_DATA.rating}
@@ -110,7 +107,7 @@ export default function Hero({ onOpenEnquiry }) {
             </div>
 
             {/* Reviews Count */}
-            <div className="bg-[#121216]/90 border border-white/10 rounded-xl p-3.5 backdrop-blur-sm">
+            <div className="bg-[#121216]/85 border border-white/10 rounded-xl p-3.5 backdrop-blur-md shadow-lg shadow-black/40">
               <div className="text-xl sm:text-2xl font-black text-white font-display mb-1">
                 {GYM_DATA.reviewsCount}+
               </div>
@@ -118,7 +115,7 @@ export default function Hero({ onOpenEnquiry }) {
             </div>
 
             {/* Fitness Center Type */}
-            <div className="bg-[#121216]/90 border border-white/10 rounded-xl p-3.5 backdrop-blur-sm">
+            <div className="bg-[#121216]/85 border border-white/10 rounded-xl p-3.5 backdrop-blur-md shadow-lg shadow-black/40">
               <div className="text-sm font-bold text-white mb-1 flex items-center gap-1.5 pt-1">
                 <CheckCircle className="w-4 h-4 text-red-500 shrink-0" />
                 <span>Unisex Gym</span>
@@ -127,7 +124,7 @@ export default function Hero({ onOpenEnquiry }) {
             </div>
 
             {/* Timing / Location Note */}
-            <div className="bg-[#121216]/90 border border-white/10 rounded-xl p-3.5 backdrop-blur-sm">
+            <div className="bg-[#121216]/85 border border-white/10 rounded-xl p-3.5 backdrop-blur-md shadow-lg shadow-black/40">
               <div className="text-sm font-bold text-white mb-1 flex items-center gap-1.5 pt-1">
                 <ShieldCheck className="w-4 h-4 text-green-400 shrink-0" />
                 <span>Closes 9:00 PM</span>
